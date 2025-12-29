@@ -1,9 +1,13 @@
 import google.generativeai as genai
-import time
+from dotenv import load_dotenv
+import os
 
-# --- PASTE YOUR KEY HERE ---
-API_KEY = "AIzaSyBojZ_APH6ZTTtF_TFOwUX1eM2j21Iy8FQ"
-genai.configure(api_key=API_KEY)
+# 1. Load environment variables
+load_dotenv()
+
+# 2. Retrieve the key securely
+api_key = os.getenv("API_KEY")
+genai.configure(api_key)
 
 # The candidates we want to test (in order of preference for high limits)
 candidates = [
